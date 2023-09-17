@@ -1,5 +1,5 @@
 ---
-- name: This is installing the HTTPD
+- name: This is installing the HTTPd
   hosts: webservers -
   become: yes
   tasks:
