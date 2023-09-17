@@ -1,0 +1,33 @@
+---
+- name : creating variables in this playbook
+  hosts: localhost
+  become: yes
+  var:
+    users:
+      user1: Iqra
+      user2: Aqsa
+      user3: Arhaan
+
+  tasks:
+    - name: print key items
+      debug:
+        var: users
+    - name: print 1 key value
+      debug:
+        var: users.user1
+    - name: print 2 key value
+      debug:
+        var: users['user1']
+    - name: print 2 key value
+      debug:
+        var: users['user2']
+    - name: print 3 key value
+      debug:
+        var: users'{{ user[2]}}'
+    - name: print keys
+      debug: 
+        var: users.key()
+    - name: print values
+      debug: 
+        var: users.values()
+             
