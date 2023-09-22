@@ -3,10 +3,10 @@
   hosts: webservers
   become: yes
   tasks:
-    - name : install latest httpd package
+    - name : un install latest httpd package
       yum:
         name: httpd
-        state: absent
+        state: removed
     - name: stop httpd
       systemd:
         name: httpd
