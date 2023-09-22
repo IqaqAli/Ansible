@@ -1,13 +1,13 @@
 ---
-  - name: Demo for when module
-    hosts: all
+name : Install httpd package on web servers
+    hosts: webservers
     become: yes
     tasks:
-      - name: instaaling the nginix
-        yum:
-          name: "{{ packages }}"
-        vars:
-          packages:
-            - nginix
-          state: present
-          
+       - name : install latest httpd package
+         yum:
+            name: httpd
+            state: latest
+       - name: start httpd
+         systemd:
+            name: httpd
+            state: started
