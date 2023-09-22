@@ -6,8 +6,9 @@
     - name : install latest httpd package
       yum:
         name: httpd
-        state: latest
-    - name: start httpd
+        state: absent
+    - name: stop httpd
       systemd:
         name: httpd
-        state: started
+        state: stopped
+      
