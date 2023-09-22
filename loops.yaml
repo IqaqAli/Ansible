@@ -1,16 +1,17 @@
 ---
-- name: Demo for loops
+- name : demo for creating loops
   hosts: all
   become: yes
   var:
     users:
       - akbar
       - iqra
-      - aqsa
       - arhaan
+      - aqsa
   tasks:
-     - name: creating user
-       user:
+     - name: creating users
+       users:
          name: "{{ item }}"
          state: present
-       loop: "{{ users }}"
+       loop: "{{ users }}"  
+---
