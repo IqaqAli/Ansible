@@ -1,7 +1,7 @@
 - name : demo for creating loops
   hosts: all
   become: yes
-  var:
+  vars:
     users:
       - akbar
       - iqra
