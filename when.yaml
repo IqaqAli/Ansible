@@ -5,6 +5,10 @@
   vars:
     package: nginx
   tasks:
+    - name: stop nginx service
+      service:
+        name: "{{ package }}"
+        state: stopped
     - name : gather services facts
       service_facts:
     - name: start nginx if down
