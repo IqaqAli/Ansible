@@ -8,8 +8,8 @@
       - arhaan
       - aqsa
   tasks:
-    - name: creating users
-      users:
+     - name: creating users
+       user:
         name: "{{ item }}"
         state: present
       loop: "{{ users }}"
