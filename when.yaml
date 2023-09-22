@@ -3,12 +3,12 @@
   hosts: webservers
   become: yes
   tasks:
-    - name : un install latest httpd package
+    - name : install latest httpd package
       yum:
-        name: httpd
-        state: removed
-    - name: stop httpd
-      systemd:
-        name: httpd
-        state: stopped
-      
+        name: nginx
+        state: present
+    -name: start nginx
+       service:
+         name: nginx
+         state: started
+         
