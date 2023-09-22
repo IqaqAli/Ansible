@@ -1,5 +1,5 @@
 ---
-  - name : demo for creating loops
+  - name: demo for creating loops
     hosts: all
     become: yes
     vars:
@@ -13,4 +13,4 @@
          user:
           name: "{{ item }}"
           state: present
-        loop: "{{ users }}"
+         loop: "{{ users }}"
