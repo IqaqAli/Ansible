@@ -11,4 +11,4 @@
       service:
         name: "{{ package }}"
         state: started
-      when: ansible_facts.services['nginx.service'].state != running
+      when: ansible_facts.services['nginx.service'].state != 'running'
