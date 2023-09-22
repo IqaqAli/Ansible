@@ -9,3 +9,5 @@
         vars:
           packages:
             - nginix
+          state: present
+          
