@@ -1,0 +1,11 @@
+---
+  - name: Demo for when module
+    hosts: all
+    become: yes
+    tasks:
+      - name: instaaling the nginix
+        yum:
+          name: "{{ packages }}"
+        vars:
+          packages:
+            - nginix
