@@ -1,13 +1,13 @@
 ---
-name : Install httpd package on web servers
-    hosts: webservers
-    become: yes
-    tasks:
-       - name : install latest httpd package
-         yum:
-            name: httpd
-            state: latest
-       - name: start httpd
-         systemd:
-            name: httpd
-            state: started
+- name : Install httpd package on web servers
+  hosts: webservers
+  become: yes
+  tasks:
+    - name : install latest httpd package
+      yum:
+        name: httpd
+        state: latest
+    - name: start httpd
+      systemd:
+        name: httpd
+        state: started
