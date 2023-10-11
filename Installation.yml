@@ -1,0 +1,34 @@
+---
+  - name: Tomcat Installation
+  - hosts: all
+  - become: yes
+    tasks:
+      - name: create user and group
+        user:
+          name: mwadmin
+        group:
+          name: mwadmin
+      - name: Create a Tomcat Directory
+        file:
+          path: /opt/tomcat9
+          owner: mwadmin
+          group: mwadmin
+          mode: 755
+          recurse: true
+      - name: Installing the Tomcat services
+        get_url:
+          url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.81/bin/apache-tomcat-9.0.81.zip
+          dest: /opt/tomcat9
+      - name: unarchive the tomcat zipped file
+        unarchive:
+          src: /opt/tomcat9/apache-tomcat-9.0.81.zip
+          dest: /opt/tomcat9
+        remote_src: yes
+      - name: start the tomcat
+        command: /opt/tomcat9/apache-tomcat-9.0.81/bin/startup.sh
+      - name: chekout the files  from git
+        git:
+          repo: https://github.com/rshaik4devops/hello-world.git
+          dest: /opt/Git/Webapp/
+
+
